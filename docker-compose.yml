@@ -8,3 +8,14 @@ services:
         image: "public.ecr.aws/d8b2x5c9/orange-stack-sat-itau-erp"
         ports: 
             - 9091:9091
+    db:
+        image: mysql:8.0.23
+        container_name: db
+        ports:
+            - "3306:3306"
+
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: pix
+            MYSQL_USER: adriano
+            MYSQL_PASSWORD: adriano
