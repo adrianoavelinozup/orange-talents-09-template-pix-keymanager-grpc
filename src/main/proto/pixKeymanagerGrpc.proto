@@ -7,14 +7,31 @@ option objc_class_prefix = "HLW";
 
 package br.com.zupacademy.adriano;
 
-service PixKeymanagerGrpcService {
-  rpc send (PixKeymanagerGrpcRequest) returns (PixKeymanagerGrpcReply) {}
+service ChavePixGrpcService {
+  rpc salvar (ChavePixRequest) returns (ChavePixResponse) {}
 }
 
-message PixKeymanagerGrpcRequest {
-  string name = 1;
+message ChavePixRequest {
+  enum TipoDeChave {
+    DESCONHECIDA = 0;
+    CPF = 1;
+    CELULAR = 2;
+    EMAIL = 3;
+    ALEATORIA = 4;
+  }
+
+  enum TipoDeConta {
+    DESCONHECIDO = 0;
+    CONTA_CORRENTE = 1;
+    CONTA_POUPANCA = 2;
+  }
+
+  string clienteId = 1;
+  TipoDeChave tipoDeChave = 2;
+  TipoDeConta tipoDeConta = 3;
+  string chavePix = 4;
 }
 
-message PixKeymanagerGrpcReply {
-  string message = 1;
+message ChavePixResponse {
+  int64 pixId = 1;
 }

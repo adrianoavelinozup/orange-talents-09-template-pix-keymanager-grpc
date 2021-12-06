@@ -15,7 +15,7 @@ jpa:
   default:
     properties:
       hibernate:
-        hbm2ddl.auto: update
+        hbm2ddl.auto: create-drop
         show_sql: true
         generate_ddl: true
         format_sql: true
