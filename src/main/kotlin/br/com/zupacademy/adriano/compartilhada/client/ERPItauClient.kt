@@ -7,9 +7,9 @@ import io.micronaut.http.annotation.QueryValue
 import io.micronaut.http.client.annotation.Client
 import java.util.*
 
-@Client("http://localhost:9091//api/v1/clientes")
+@Client("\${api.itau.url}")
 interface ERPItauClient {
-    @Get("/{clienteId}/contas")
+    @Get("/api/v1/clientes/{clienteId}/contas")
     fun pesquisarCliente(
         @PathVariable clienteId: String,
         @QueryValue tipo: String,

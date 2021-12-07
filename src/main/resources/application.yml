@@ -2,6 +2,10 @@ micronaut:
   application:
     name: pixKeymanagerGrpc
 
+api:
+  itau:
+    url: ${API_ITAU_URL_BASE:`http://localhost:9091`}
+
 datasources:
   default:
     url: jdbc:mysql://localhost:3306/pix
