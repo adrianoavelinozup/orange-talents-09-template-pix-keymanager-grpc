@@ -23,7 +23,7 @@ class CPFValidator : TipoDeChaveValidator {
 
 class CelularValidator : TipoDeChaveValidator {
     override fun valida(chavePix: String) {
-        if (!chavePix.matches("^\\+[1-9][0-9]\\d{1,14}\$".toRegex())) {
+        if (!chavePix.matches("^\\+[1-9][0-9]\\d{14}\$".toRegex())) {
             throw GrpcException("Chave pix deve ser um celular válido. Ex: +5585988714077", Status.INVALID_ARGUMENT)
         }
     }
